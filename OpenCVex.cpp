@@ -9,7 +9,7 @@ using namespace std;
 
 int main()
 {
-    cv::Mat src = cv::imread("C:/DevCpp/OpenCVex/light_img.jpg", cv::IMREAD_COLOR);
+    cv::Mat src = cv::imread("C:/DevCpp/OpenCVex/light2_img.jpg", cv::IMREAD_COLOR);
     if (src.empty())
     {
         cout << "영상을 읽을 수 없음" << endl; 
