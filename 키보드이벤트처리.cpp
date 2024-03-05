@@ -7,7 +7,7 @@ using namespace std;
 int main()
 {
     Mat img; 
-    img = imread("C:/DevCpp/OpenCvex/light_img.jpg", IMREAD_COLOR);
+    img = imread("C:/DevCpp/OpenCvex/light2_img.jpg", IMREAD_COLOR);
     if (img.empty())
     {
         cout << "영상을 읽을 수 없음" << endl; 
