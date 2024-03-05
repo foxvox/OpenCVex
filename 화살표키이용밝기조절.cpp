@@ -4,31 +4,37 @@
 using namespace cv; 
 using namespace std; 
 
+Mat img; 
+int drawing = false; 
+
+void drawCircle(int event, int x, int y, int, void* param)
+{
+    if (event == CV_EVENT_LBUTTONDOWN)
+        drawing = true;
+    else if (event == CV_EVENT_MOUSEMOVE)
+    {
+        if (drawing == true)
+            circle(img, Point(x, y), 3, Scalar(0, 0, 255), 10);
+    }
+    else if (event == CV_EVENT_LBUTTONUP)
+        drawing = false; 
+
+    imshow("img", img); 
+}
+
 int main()
 {
-    Mat src; 
-    src = imread("C:/DevCpp/OpenCvex/light_img.jpg", IMREAD_COLOR);
-    if (src.empty())
+    
+    img = imread("C:/DevCpp/OpenCvex/gc4.jpg", IMREAD_COLOR);
+    if (img.empty())
     {
         cout << "영상을 읽을 수 없음" << endl; 
     }
 
-    imshow("src", src); 
-
-    while (1)
-    {
-        int key = waitKeyEx(); 
-        // cout << key << " ";
-
-        if (key == 'q')
-            break;
-        else if (key == 2424832)
-            src -= 50;
-        else if (key == 2555904)
-            src += 50;
-
-        imshow("src", src); 
-    }
+    imshow("img", img); 
+    setMouseCallback("img", drawCircle); 
+    waitKey(0); 
+    imwrite("C:/DevCpp/OpenCvex/gc8.jpg"); 
 
     return 0; 
 }
