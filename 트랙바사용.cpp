@@ -30,7 +30,7 @@ int main()
     img = imread("C:/DevCpp/OpenCvex/light.jpg", IMREAD_COLOR);
     if (img.empty())
     {
-        cout << "영상을 읽을 수 없음" << endl;
+        cout << "영상을 읽을 수 없음" << endl; 
     }
 
     namedWindow("img", 1); 
